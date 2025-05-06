@@ -3,5 +3,9 @@
   "plugins": ["tailwindcss"],
   "rules": {
     "tailwindcss/classnames-order": "warn"
+  },
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module"
   }
 }
