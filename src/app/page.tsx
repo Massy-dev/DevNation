@@ -6,7 +6,7 @@ import Stories from '@/components/Stories';
 import RightMenu from '@/components/menu/RightMenu';
 import PostFeed from '@/components/PostFeed';
 import AddPost from '@/components/AddPost';
-import { UserButton } from "@clerk/nextjs";
+import { UserButton, SignedIn, SignedOut, SignInButton } from "@clerk/nextjs";
 
 const Home = () => {
   return (
@@ -18,7 +18,16 @@ const Home = () => {
       <div className="w-full lg:w-[80%] xl:w-[50%]">
         <div className="flex flex-col gap-6">
           <div className="flex justify-end">
-            <UserButton afterSignOutUrl="/"/>
+            <SignedIn>
+              <UserButton afterSignOutUrl="/"/>
+            </SignedIn>
+            <SignedOut>
+              <SignInButton mode="modal">
+                <button className="bg-blue-500 text-white px-4 py-2 rounded-md">
+                  Sign In
+                </button>
+              </SignInButton>
+            </SignedOut>
           </div>
           <Stories/>
           <AddPost/>
